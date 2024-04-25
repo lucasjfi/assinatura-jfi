@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+ <html lang="pt-br">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Gerador de assinatura J.F.I Silvicultura</title>
+     <!-- CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="Assets/style.css">
+     <!-- JS -->
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+ </head>
+ <body>
+    <div class="container">
+        <!-- Formulario -->
+        <div class="col-lg-10">
+          <div class="moldura">
+            <form action="" method="post">
+              <div class="row">
+                  <div class="col-lg-10">
+                      <label for="nome" class="form-label">SEU NOME COMPLETO <span class="alerta">*Limite de 28 caracteres.</span></label>
+                      <input type="text" class="form-control" required="required" maxlength="28" id="nome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" placeholder="José Carlos de Almeida">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-10">
+                      <label for="funcao" class="form-label">SUA FUNÇÃO <span class="alerta">*Limite de 26 caracteres.</span></label>
+                      <input type="text" class="form-control" required="required" maxlength="26" id="funcao" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" placeholder="CEO">
+                  </div>
+              </div>  
+              <div class="row">
+                  <div class="col-lg-10">
+                      <label for="local" class="form-label">LOCAL DE ATUAÇÃO  <span class="alerta">*Limite de 20 caracteres.</span></label>
+                      <input type="text" class="form-control" id="local" maxlength="20" required="required" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" placeholder="Itapetininga/SP">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-10">
+                      <label for="telefone" class="form-label">TELEFONE DE CONTATO</label>
+                      <input type="text" class="form-control" id="telefone" required="required" name="phone" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" placeholder="(15) 3511-1111">
+                  </div>
+              </div>
+          </form>
+          <div class="row row-btn">
+              <div class="col-lg-10">
+                  <button type="submit" class="btn btn-light btn-lg btn-block" data-toggle="modal" data-target="#exampleModal" onclick="gen()">GERAR ASSINATURA</button>
+              </div>
+          </div>               
+          </div>                 
+        </div>
+        <!-- Final do Formulario -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                      <div class="row">
+                      </div>
+                      <p><h3>Assinatura criada</h3></p>
+                      <p><h4>Cole sua assinatura no seu cliente de e-mail para utiliza-lá.</h4></p>
+                      <div class="row" id="assinatura">
+                          <div class="col-md-7">
+                              <div>
+                                <iframe id="displaySign" ></iframe>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div id="accordion">
+                          <div class="">
+                            <div class="" id="headingOne">
+                              <h5 class="">
+                                <div class="row">
+                                <button class="btn  btn-showmeMore" data-bs-toggle="collapse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  Precisa de ajuda para inserir a assinatura? Clique aqui
+                                </button>
+                              </div>
+                              </h5>
+                            </div>
+                      </div>
+                      <div class="row">
+                        <!-- Accordion -->
+
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body">
+                                <!-- Conteudo -->
+                                <div class="row">
+                                  <div class="col-md-12">
+                                      <p><h4>Vá até ao Outlook e clique em "Novo e-mail".</h4></p>
+                                      <img src="Assets/img/inst1.jpg">
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-12">
+                                      <p><h4>Em "Mensagem", clique em "Assinatura" > "Assinaturas..." conforme a imagem.</h4></p>
+                                      <img src="Assets/img/inst2.jpg">
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-12">
+                                      <p><h4>Agora, siga os seguintes passos:.</h4></p>
+                                      <p><h6>1- Digite seu nome > clique em Ok;</h6></p>
+                                      <p><h6>2- Pressione as teclas CTRL + V; </h6></p>
+                                      <p><h6>3- Escolha seu nome > Clique em <i>"Ok".</i></h6></p>
+                                      <img src="Assets/img/inst3.jpg">
+                                  </div>
+                                </div>       
+                                <div class="row">
+                                  <div class="col-md-12">
+                                      <p><h4>Finalizado! suas novas mensagens ja devem vir com a nova assinatura.</h4></p>
+                                      <p><h4>Caso necessite realizar alterações na assinatura, repita todos os passos.</h4></p>
+                                  </div>
+                                </div>
+                                <!-- Final conteudo -->
+                              </div>
+                            </div>
+                          </div>
+                        <!-- Final Accordion -->
+                      </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="document.location.reload(true)">Fechar</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <!-- Sessão do Tutorial -->
+    </div>
+ </body>
+ <script>
+
+  function gen(){
+  //Remove Numeros dos nomes 
+  $("#nome").on("input", function(){
+    var regexp = /[^a-zA-Z]/g;
+    if(this.value.match(regexp)){
+      $(this).val(this.value.replace(regexp,''));
+    }
+  });
+  $("#local").on("input", function(){
+    var regexp = /[^a-zA-Z]/g;
+    if(this.value.match(regexp)){
+      $(this).val(this.value.replace(regexp,''));
+    }
+  });
+  var nome = document.getElementById("nome").value.toUpperCase();
+  var  funcao = document.getElementById("funcao").value.toUpperCase();
+  var local = document.getElementById("local").value.toUpperCase();
+  var contato =  document.getElementById("telefone").value;
+
+  document.getElementById('displaySign').src='eng/index.php?asNome'+nome+'&asFunc='+funcao+'&asLocal='+local+'&asContato='+contato
+  }
+
+     function mask(o, f) {
+  setTimeout(function() {
+    var v = mphone(o.value);
+    if (v != o.value) {
+      o.value = v;
+    }
+  }, 1);
+}
+function mphone(v) {
+  var r = v.replace(/\D/g, "");
+  r = r.replace(/^0/, "");
+  if (r.length > 10) {
+    r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+  } else if (r.length > 5) {
+    r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+  } else if (r.length > 2) {
+    r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+  } else {
+    r = r.replace(/^(\d*)/, "($1");
+  }
+  return r;
+}
+ </script>
+ </html>

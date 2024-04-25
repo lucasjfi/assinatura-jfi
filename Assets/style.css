@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+body{
+    background-image: url('img/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: medium;
+    /* text-shadow: 0.8px 0.8px rgb(115, 114, 117); */
+}
+.modal-content{
+    font-family: 'Segoe UI' !important;
+    font-size: medium !important;
+}
+.h3, h3{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;   
+}
+h4, h5, h6{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: medium;
+}
+p{
+    font-family: 'Segoe UI' !important;
+    font-size: medium !important;
+}
+.card-body {
+    margin-left: 1em;
+}
+.modal-body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: medium;    
+    overflow-x: hidden; /*alteração*/
+}
+.btn-showmeMore{
+    margin-left: 15em;
+}
+.alerta{
+    font-size: 7pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    color: rgb(150, 37, 37);
+}
+.moldura{
+    background-color: rgba(211, 210, 210, 0.2);
+    height: 24em;
+    padding-left: 8em;
+    padding-top: 1em;
+    margin-left: -7em;
+    margin-top: -3em;
+    width: 52em;
+    border-radius: 1em;
+}
+.row{
+    margin-top: 0.4em;
+}
+label{
+    margin-bottom: -0.5em;
+}
+.container{
+    padding-top: 3em;
+    margin-top: 2em;
+}
+#displaySign{
+    width: 442px;
+    height: 221px;
+    overflow: hidden;
+    margin-left: 12em;
+}
+#assinatura{
+    border: none;
+    border-color: rgb(235, 235, 235); 
+    border-radius: 5px;
+}
+.row-btn{
+    margin-top: 1em;
+}
+.btn-light{
+    border-color: rgba(211, 210, 210, 0.5)
+;
+}
+@media only screen and (max-width: 1024px) and (max-height: 1366px){
+    body{
+        background-image: none;
+        /* background-color: ; */
+        background-size: cover;
+        /*background-repeat: repeat-y;*/
+    }
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl {
+        max-width: 62em;
+    }
+}
+@media only screen and (max-width: 414px){
+    body{
+    }
+    h4, h5, h6{
+        overflow-wrap: break-word;
+    }
+    .btn-showmeMore {
+        margin-left: 6em;
+    }
+    .moldura{
+        background-color: rgba(211, 210, 210, 0.2);
+        height: unset;
+        padding: 1em;
+        margin-left: -1em;
+        margin-top: -3em;
+        width: unset;
+        border-radius: 1em;
+        border-radius: 1em; 
+    }
+    iframe{
+
+    }
+@media only screen and (max-width: 2400px) and (max-height: 1080px){
+    body{
+    }
+    h4, h5, h6{
+        overflow-wrap: break-word;
+    }
+    .btn-showmeMore {
+        margin-left: 6em;
+    }
+    .moldura{
+        background-color: rgba(211, 210, 210, 0.2);
+        height: unset;
+        padding: 1em;
+        margin-left: -1em;
+        margin-top: -3em;
+        width: unset;
+        border-radius: 1em;
+        border-radius: 1em; 
+    }
+    iframe{
+
+    }
+}
