@@ -130,6 +130,9 @@
         </div>
         <!-- Sessão do Tutorial -->
     </div>
+    <div>
+      <a href="" src="./eng/index.php"></a>
+    </div>
  </body>
  <script>
 
@@ -152,9 +155,10 @@
   var local = document.getElementById("local").value.toUpperCase();
   var contato =  document.getElementById("telefone").value;
 
-  document.getElementById('displaySign').src='eng/index.php?asNome'+nome+'&asFunc='+funcao+'&asLocal='+local+'&asContato='+contato
-  }
+  /*document.getElementById('displaySign').src="./eng/index.php&asNome="+nome+'&asFunc='+funcao+'&asLocal='+local+'&asContato='+contato;*/
+  document.getElementById('displaySign').src = "./estrutura.html?asNome=" + nome + '&asFunc=' + funcao + '&asLocal=' + local + '&asContato=' + contato;
 
+  }
      function mask(o, f) {
   setTimeout(function() {
     var v = mphone(o.value);
